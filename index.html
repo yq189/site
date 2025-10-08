@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>多人大群稳定保障</title>
+  
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 0 15px; background-color: #f9f9f9; color: #333; }
+    h1, h2 { color: #222; }
+    button { padding: 8px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    img { display: block; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+<h1>进群直接私聊群主</h1>
+<p>群内已屏蔽聊天功能，直接添加群主好友即可</p >
+
+<h2>加入我的QQ群</h2>
+<p>群号：<strong id="qq-group">983688374</strong></p >
+<button onclick="copyQQ()">983688374</button>
+
+<script>
+function copyQQ(){
+  const id = document.getElementById('qq-group').innerText.trim();
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(id).then(()=> alert('QQ group number copied to clipboard'));
+  } else {
+    const t = document.createElement('textarea'); t.value = id; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); alert('QQ group number copied to clipboard'); } catch(e){ alert('Copy failed. Please copy manually: ' + id); }
+    t.remove();
+  }
+}
+</script>
+
+</body>
+</html>
